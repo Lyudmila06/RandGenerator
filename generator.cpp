@@ -52,7 +52,7 @@ constexpr std::size_t CACHE_LINE = std::hardware_destructive_interference_size;
 #endif
 
 
-double randomize(unsigned* V, unsigned N, unsigned min, unsigned max) {
+double randomize(unsigned* V, size_t N, unsigned min, unsigned max) {
 
     unsigned T = get_num_threads();
     std::vector<unsigned> multipliers = get_A(T);
@@ -77,10 +77,10 @@ double randomize(unsigned* V, unsigned N, unsigned min, unsigned max) {
         thread.join();
     for (unsigned i = 0; i < T; ++i)
         full_sum += partial_rand.at(i);
-    //ïå÷àòü ðàíäîìèçèðîâàííîãî âåêòîðà
+    //Ã¯Ã¥Ã·Ã Ã²Ã¼ Ã°Ã Ã­Ã¤Ã®Ã¬Ã¨Ã§Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã®Ã£Ã® Ã¢Ã¥ÃªÃ²Ã®Ã°Ã 
     //for (int i = 0; i < N; i++)
     //    std::cout << V[i] << ", ";
-    ////ïå÷àòü ÷àñòè÷íûõ ñóìì
+    ////Ã¯Ã¥Ã·Ã Ã²Ã¼ Ã·Ã Ã±Ã²Ã¨Ã·Ã­Ã»Ãµ Ã±Ã³Ã¬Ã¬
     //std::cout << std::endl << "___________________" << std::endl;
     //for (int i = 0; i < T; i++)
     //    std::cout << partial_rand.at(i) << ", ";
